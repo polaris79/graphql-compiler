@@ -204,6 +204,11 @@ def _estimate_edges_to_children_per_parent(
     distributed evenly over A vertices, so the expected number of child edges per parent vertex is
     (number of AB edges) / (number of A vertices).
 
+    # XXX If the id of the parent is known, check if any of the incoming edges are known
+    #     to commonly point to this node.
+    #
+    # Note: This approach breaks rotation invariance. Consider alternatives.
+
     Args:
         schema_info: QueryPlanningSchemaInfo
         query_metadata: QueryMetadataTable object.

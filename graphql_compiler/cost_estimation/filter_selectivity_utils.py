@@ -181,6 +181,8 @@ def _estimate_filter_selectivity_of_equality(schema_info, location_name, filter_
     """
     all_selectivities = []
 
+    # XXX check if the field value is common
+
     unique_indexes = schema_info.schema_graph.get_unique_indexes_for_class(location_name)
     if _are_filter_fields_uniquely_indexed(filter_fields, unique_indexes):
         # TODO(evan): don't return a higher absolute selectivity than class counts.

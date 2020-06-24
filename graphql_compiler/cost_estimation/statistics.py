@@ -97,6 +97,11 @@ class Statistics(object):
         """
         return None
 
+    # XXX add function for field and edge frequency:
+    # - decide whether sample outcomes or calculated estimates is more appropriate in this API
+    # - decide how to talk about common edges. Is it sane to identify edges by the primary key value
+    #   of the vertex on the other side?
+
 
 class LocalStatistics(Statistics):
     """Statistics class that receives all statistics at initialization, storing them in-memory."""
@@ -178,3 +183,5 @@ class LocalStatistics(Statistics):
         """See base class."""
         statistic_key = (vertex_name, field_name)
         return self._field_quantiles.get(statistic_key)
+
+    # XXX implement the newly added methods in the base class
